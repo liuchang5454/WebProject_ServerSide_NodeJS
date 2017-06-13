@@ -7,6 +7,8 @@ NodeJSNotes:
 *
 *Node Module:
 *- files and modules are in one-to-one correspondence. each file is treated as a separate module
+*
+*Express: a web framework for NodeJS
 *********************/
 
 
