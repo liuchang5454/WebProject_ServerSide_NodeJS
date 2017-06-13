@@ -8,7 +8,13 @@ NodeJSNotes:
 *Node Module:
 *- files and modules are in one-to-one correspondence. each file is treated as a separate module
 *
-*Express: a web framework for NodeJS
+*Express: a web framework for NodeJS. "A top layer that extends Connect".
+* 
+*Connect: a http server framework built on Node. "a middleware framework for node".
+*
+*morgan: HTTP request logger middleware for node.js. Once you start the server in CMD, in the shell it will display the http request logs.
+*
+*body-parser: NodeJS body parsing middleware. Parse incoming req.body in different formats, such as text, json, xml. 
 *********************/
 
 
