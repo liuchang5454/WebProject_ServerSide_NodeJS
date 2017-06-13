@@ -1,0 +1,14 @@
+NodeJSNotes:
+
+/*********************
+*Some terms:
+*
+*Node.js: is a js runtime built on Chrome's V8 js engine. Node.js' package ecosystem npm is the largest ecosystem of open source lib in the world.
+*
+*Node Module:
+*- files and modules are in one-to-one correspondence. each file is treated as a separate module
+*********************/
+
+
+
+
