@@ -20,3 +20,52 @@ NodeJSNotes:
 
 
 
+/*********************
+*Server Commands:
+*
+*in node-express-gen:
+*- npm start: will run the server, by call .bin/www
+*
+*in node-express:
+*- node server: will run the server.js file and start the server.
+*********************/
+
+
+
+/*********************
+*Mongodb Commands:
+*
+*===install and run server===
+*- new folder ./mongodb/data, mongodb folder in parallel with node-http, node-express.
+*- move to the mogodb folder, run command below to start the mongodb server
+*- mongod --dbpath=data
+*- open another CMD shell (note git bash doesn't work well), run command below to start mongo REPL shell to interact with the db 
+*- mongo
+*
+*
+*===add system variable===
+*this is to make sure you are able to run the mongodb commands anywhere
+*- window serarch: system
+*- advanced system settings
+*- Environment Variables
+*- in 2nd window, double click on Path 
+*- new path similar like "C:\Program Files\MongoDB\Server\3.4\bin"
+*
+*
+*===mongodb node driver===
+*- npm install mongodb --save
+*- npm install assert --save
+*
+*
+*
+*===mongodb sample querys===
+*- show dbs
+*- use conFusion
+*	//conFusion is a db
+*- use conFusion
+*- show collections
+*	//collection is Table, document is table row
+*- db.dishes.find().pretty()
+*	//dishes is a document, show the contents
+*
+*********************/
