@@ -1,5 +1,21 @@
 NodeJSNotes:
 
+
+/*********************
+*Folder Hierarchy:
+*
+*folder node-examples: how to export node module files in 2 ways. and reference the module file from another js file.
+*
+*folder node-http: used node http module, created a http server
+*
+*folder node-express: used node express framework, and other modules such as body-parser, morgan. also created seperated Router modules.
+*
+*folder node-express-gen: used Expresss Generator to scaffold an express app, used the Routers created in node-express.
+*********************/
+
+
+
+
 /*********************
 *Some terms:
 *
