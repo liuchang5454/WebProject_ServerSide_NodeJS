@@ -11,6 +11,8 @@ NodeJSNotes:
 *folder node-express: used node express framework, and other modules such as body-parser, morgan. also created seperated Router modules.
 *
 *folder node-express-gen: used Expresss Generator to scaffold an express app, used the Routers created in node-express.
+*
+*folder rest-server: integrated REST API server based on Express framework, with Mongoose schema and models, with mongodb. note i added the db.json just for reference of the data.
 *********************/
 
 
