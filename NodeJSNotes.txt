@@ -13,6 +13,8 @@ NodeJSNotes:
 *folder node-express-gen: used Expresss Generator to scaffold an express app, used the Routers created in node-express.
 *
 *folder rest-server: integrated REST API server based on Express framework, with Mongoose schema and models, with mongodb. note i added the db.json just for reference of the data.
+*
+*folder basic-auth: basic authorization, used module of Express and Morgan. No Mongodb. Only served 2 dummy html files
 *********************/
 
 
