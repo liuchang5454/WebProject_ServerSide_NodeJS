@@ -35,6 +35,8 @@ dishRouter.route('/')
     });
 });
 
+//below code is to handle individual dish 
+
 dishRouter.route('/:dishId')
 .get(function (req, res, next) {
     Dishes.findById(req.params.dishId, function (err, dish) {
@@ -55,7 +57,8 @@ dishRouter.route('/:dishId')
 })
 
 .delete(function (req, res, next) {
-    Dishes.findByIdAndRemove(req.params.dishId, function (err, resp) {        if (err) throw err;
+    Dishes.findByIdAndRemove(req.params.dishId, function (err, resp) {        
+        if (err) throw err;
         res.json(resp);
     });
 });
