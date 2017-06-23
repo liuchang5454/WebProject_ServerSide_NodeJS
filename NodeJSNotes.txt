@@ -15,6 +15,7 @@ NodeJSNotes:
 *folder rest-server: integrated REST API server based on Express framework, with Mongoose schema and models, with mongodb. note i added the db.json just for reference of the data.
 *
 *folder basic-auth: basic authorization, used module of Express and Morgan. No Mongodb. Only served 2 dummy html files
+*
 *********************/
 
 
@@ -88,4 +89,54 @@ NodeJSNotes:
 *- db.dishes.find().pretty()
 *	//dishes is a document, show the contents
 *
+*********************/
+
+
+
+
+/*********************
+*rest-server-passport Summary and Commands:
+*
+*compoents:
+*- rest API server
+*- data host is mongodb
+*- use authentication: token-based verification, Node Passport Module
+*
+*DB commands
+*- cd mongodb, start mongodb server
+*- mongod --dbpath=data
+*- cd rest-server-passport, start the rest API server
+*- npm start
+*
+*registration
+*- open postman
+*- POST localhost:3000/users/register
+*- no Authorization
+*- Body:
+{
+	"username": "Chang Liu",
+	"password": "password"
+}
+*
+*Login
+*- POST localhost:3000/users/login
+*- no Authorization
+*- Body:
+{
+	"username": "Chang Liu",
+	"password": "password"
+}
+*- return the token. copy the token
+*
+*Any subsequent access to server, will need the token in the request header 
+*
+*- GET localhost:3000/dishes
+*- no Authorization
+*- Header, new Key "x-access-token"
+*- Value: paste the token string
+*- returns [] 
+*
+*- POST localhost:3000/dishes
+*- Header contains the token
+*- Body contains a dish in json format
 *********************/
