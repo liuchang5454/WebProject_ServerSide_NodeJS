@@ -139,4 +139,26 @@ NodeJSNotes:
 *- POST localhost:3000/dishes
 *- Header contains the token
 *- Body contains a dish in json format
+*
+*
+*
+*
+*Admin User
+*
+*Register:
+*- Body:
+{
+	"username": "Admin",
+	"password": "password"
+}
+*
+*Admin Flag Set in mongodb
+*- open CMD
+*- mongo
+*- use conFusion
+*- db.users.find().pretty()
+*- db.users.update({username:"Admin"}, {$set:{admin:true}})
+*
+*
+*- login as Admin and as Chang Liu, see different accessibility for GET, PUT, POST, DELETE. And Get users
 *********************/
