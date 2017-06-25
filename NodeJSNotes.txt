@@ -157,7 +157,7 @@ NodeJSNotes:
 *- mongo
 *- use conFusion
 *- db.users.find().pretty()
-*- db.users.update({username:"Admin"}, {$set:{admin:true}})
+*- db.users.update({username:"admin"}, {$set:{admin:true}})
 *
 *
 *- login as Admin and as Chang Liu, see different accessibility for GET, PUT, POST, DELETE. And Get users
