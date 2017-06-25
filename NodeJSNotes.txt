@@ -36,6 +36,9 @@ NodeJSNotes:
 *morgan: HTTP request logger middleware for node.js. Once you start the server in CMD, in the shell it will display the http request logs.
 *
 *body-parser: NodeJS body parsing middleware. Parse incoming req.body in different formats, such as text, json, xml. 
+*
+*
+LoopBack: an open source Node.js backend framework. Auto scaffold out an backend server with data models, routers, basically setup all the components you need for an REST API server.  
 *********************/
 
 
@@ -161,4 +164,65 @@ NodeJSNotes:
 *
 *
 *- login as Admin and as Chang Liu, see different accessibility for GET, PUT, POST, DELETE. And Get users
+*********************/
+
+
+
+
+
+
+/*********************
+LoopBack Summary and Commands:
+
+**note: all interactive commands should be typed in CMD, not git bash.
+
+install: 
+- cd anywhere
+- npm install strongloop -g
+
+scaffolding:
+- cd master folder
+- slc loopback
+- app name: loopback-server
+- select default directory name. the same
+- app type: api-server
+- cd loopback-server
+
+create models:
+- slc loopback:model
+
+setup data source:
+- slc loopback:datasource
+
+setup access control list (ACL)
+- slc loopback:acl
+
+setup relationships
+- slc loopback:relation
+
+boot script creating 2 customers
+- in the server/boot/script.js
+
+start the server:
+- cd loopback
+- mongod --dbpath=data
+	//if the data source is mongodb, then you should run mongodb first
+- node . 
+	//if the server can't be started, delete all contents under ../mongodb/data/
+
+login as customer
+- start the server
+- http://localhost:3000/explorer
+- Customer, POST login
+{
+"username": "Admin", //or "muppala",
+"password": "abcdef"
+}
+- copy the id string from the response
+- paste into the Token box at the top of the page, Set
+- then you are logged in
+
+get comments with dish and customer
+- in the comment GET, include filter:
+- filter: {"include":["dishes","customer"]}
 *********************/
