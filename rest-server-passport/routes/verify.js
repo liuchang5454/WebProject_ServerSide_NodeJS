@@ -50,9 +50,9 @@ exports.verifyAdmin = function (req, res, next) {
             } else {
                 // if everything is good, save to request for use in other routes
                 req.decoded = decoded;
-                console.log("User Admin Flag: " + req.decoded._doc.admin);
+                console.log("User Admin Flag: " + req.decoded.admin);
 
-                if (req.decoded._doc.admin){
+                if (req.decoded.admin){
                     next();
                 }else{
                     var err = new Error('You are not authorized to perform this operation!');

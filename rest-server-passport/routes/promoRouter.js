@@ -9,9 +9,10 @@ var promoRouter = express.Router();
 promoRouter.use(bodyParser.json());
 
 promoRouter.route('/')
-.get(Verify.verifyOrdinaryUser, function(req,res,next){
-    Promotions.find({}, function (err, promotion) {
-        if (err) throw err;
+.get(function (req, res, next) {
+    Promotions.find(req.query)
+        .exec(function (err, promotion) {
+        if (err) next(err);
         res.json(promotion);
     });
 })

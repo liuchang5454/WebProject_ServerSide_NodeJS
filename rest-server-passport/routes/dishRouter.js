@@ -9,9 +9,11 @@ var dishRouter = express.Router();
 dishRouter.use(bodyParser.json());
 
 dishRouter.route('/')
-.get(Verify.verifyOrdinaryUser, function (req, res, next) {
-    Dishes.find({}, function (err, dish) {
-        if (err) throw err;
+.get(function (req, res, next) {
+    Dishes.find(req.query)
+        .populate('comments.postedBy')
+        .exec(function (err, dish) {
+        if (err) next(err);
         res.json(dish);
     });
 })
@@ -83,7 +85,7 @@ dishRouter.route('/:dishId/comments')
 .post(function (req, res, next) {
     Dishes.findById(req.params.dishId, function (err, dish) {
         if (err) throw err;
-        req.body.postedBy = req.decoded._doc._id;
+        req.body.postedBy = req.decoded._id;
         dish.comments.push(req.body);
         dish.save(function (err, dish) {
             if (err) throw err;
@@ -130,7 +132,7 @@ dishRouter.route('/:dishId/comments/:commentId')
     Dishes.findById(req.params.dishId, function (err, dish) {
         if (err) throw err;
         dish.comments.id(req.params.commentId).remove();
-        req.body.postedBy = req.decoded._doc._id;
+        req.body.postedBy = req.decoded._id;
         dish.comments.push(req.body);
         dish.save(function (err, dish) {
             if (err) throw err;
@@ -142,7 +144,7 @@ dishRouter.route('/:dishId/comments/:commentId')
 
 .delete(function (req, res, next) {
     Dishes.findById(req.params.dishId, function (err, dish) {
-        if(dish.comments.id(req.params.commentId).postedBy != req.decoded._doc._id){
+        if(dish.comments.id(req.params.commentId).postedBy != req.decoded._id){
             var err = new Error('You are not authorized to perform this operation!');
             err.status = 403; 
             return next(err);

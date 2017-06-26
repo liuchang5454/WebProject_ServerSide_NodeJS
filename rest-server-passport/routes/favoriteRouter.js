@@ -4,13 +4,12 @@ var mongoose = require('mongoose');
 
 var Favorite = require('../models/favorites');
 var Dish = require('../models/dishes');
-var verify = require('./verify');
+var Verify = require('./verify');
 
 var favoriteRouter = express.Router();
 favoriteRouter.use(bodyParser.json());
 
 favoriteRouter.route('/')
-    .all(verify.verifyOrdinaryUser)
     .get(function (req, res, next) {
         Favorite.find({'postedBy': req.decoded._doc._id})
             .populate('postedBy')
@@ -21,7 +20,7 @@ favoriteRouter.route('/')
             });
     })
 
-    .post(function (req, res, next) {
+    .post(Verify.verifyOrdinaryUser, function (req, res, next) {
 
         Favorite.find({'postedBy': req.decoded._doc._id})
             .exec(function (err, favorites) {
@@ -64,7 +63,7 @@ favoriteRouter.route('/')
     })
 
     .
-    delete(function (req, res, next) {
+    delete(Verify.verifyOrdinaryUser, function (req, res, next) {
         Favorite.remove({'postedBy': req.decoded._doc._id}, function (err, resp) {
             if (err) throw err;
             res.json(resp);
@@ -72,8 +71,7 @@ favoriteRouter.route('/')
     });
 
 favoriteRouter.route('/:dishId')
-    .all(verify.verifyOrdinaryUser)
-    .delete(function (req, res, next) {
+    .delete(Verify.verifyOrdinaryUser, function (req, res, next) {
 
         Favorite.find({'postedBy': req.decoded._doc._id}, function (err, favorites) {
             if (err) return err;

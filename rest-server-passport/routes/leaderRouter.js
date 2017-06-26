@@ -10,9 +10,10 @@ leaderRouter.use(bodyParser.json());
 
 
 leaderRouter.route('/')
-.get(Verify.verifyOrdinaryUser, function(req,res,next){
-    Leadership.find({}, function (err, leader) {
-        if (err) throw err;
+.get(function (req, res, next) {
+    Leadership.find(req.query)
+        .exec(function (err, leader) {
+        if (err) next(err);
         res.json(leader);
     });
 })

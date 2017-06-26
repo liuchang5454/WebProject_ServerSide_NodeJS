@@ -28,6 +28,10 @@ var promoSchema = new Schema({
     price: {
         type: Currency,
         required: true
+    },
+    featured: {
+        type: Boolean,
+        default:false
     }
 }, {
     timestamps: true
